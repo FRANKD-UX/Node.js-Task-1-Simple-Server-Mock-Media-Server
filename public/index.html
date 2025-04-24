@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media API Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        code {
+            background-color: #f8f8f8;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .endpoint {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .method {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .get {
+            background-color: #3498db;
+        }
+        .post {
+            background-color: #2ecc71;
+        }
+        .put {
+            background-color: #f39c12;
+        }
+        .delete {
+            background-color: #e74c3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Media API Documentation</h1>
+    <p>This API provides endpoints to manage movies, TV series, and songs. Use the endpoints below to interact with the different media collections.</p>
+
+    <h2>Endpoints Overview</h2>
+    <ul>
+        <li><code>/movies</code> - Manage movie collection</li>
+        <li><code>/series</code> - Manage TV series collection</li>
+        <li><code>/songs</code> - Manage song collection</li>
+    </ul>
+
+    <h2>Movies API</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span> <code>/movies</code>
+        <p>Returns a list of all movies in the collection.</p>
+        <h3>Response</h3>
+        <pre>
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "year": 2010,
+    "genre": "Sci-Fi",
+    "rating": 8.8
+  },
+  ...
+]</pre>
+    </div>
+
+    <div class="endpoint">
+        <span class="method post">POST</span> <code>/movies</code>
+        <p>Adds a new movie to the collection.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "title": "New Movie Title",
+  "director": "Director Name",
+  "year": 2023,
+  "genre": "Genre",
+  "rating": 8.5
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated movie collection with the new movie included, with an auto-generated ID.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method put">PUT</span> <code>/movies</code>
+        <p>Updates an existing movie in the collection.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "id": 1,
+  "title": "Updated Movie Title",
+  "director": "Director Name",
+  "year": 2023,
+  "genre": "Genre",
+  "rating": 8.5
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated movie collection.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method delete">DELETE</span> <code>/movies</code>
+        <p>Deletes a movie from the collection by ID.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "id": 1
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated movie collection with the specified movie removed.</p>
+    </div>
+
+    <h2>Series API</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span> <code>/series</code>
+        <p>Returns a list of all TV series in the collection.</p>
+        <h3>Response</h3>
+        <pre>
+[
+  {
+    "id": 1,
+    "title": "Breaking Bad",
+    "creator": "Vince Gilligan",
+    "seasons": 5,
+    "startYear": 2008,
+    "endYear": 2013,
+    "genre": "Crime Drama",
+    "rating": 9.5
+  },
+  ...
+]</pre>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method post">POST</span> <code>/series</code>
+        <p>Adds a new TV series to the collection.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "title": "New Series Title",
+  "creator": "Creator Name",
+  "seasons": 3,
+  "startYear": 2020,
+  "endYear": 2023,
+  "genre": "Genre",
+  "rating": 8.7
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated series collection with the new series included, with an auto-generated ID.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method put">PUT</span> <code>/series</code>
+        <p>Updates an existing TV series in the collection.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "id": 1,
+  "title": "Updated Series Title",
+  "creator": "Creator Name",
+  "seasons": 5,
+  "startYear": 2020,
+  "endYear": 2023,
+  "genre": "Genre",
+  "rating": 8.7
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated series collection.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method delete">DELETE</span> <code>/series</code>
+        <p>Deletes a TV series from the collection by ID.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "id": 1
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated series collection with the specified series removed.</p>
+    </div>
+
+    <h2>Songs API</h2>
+    
+    <div class="endpoint">
+        <span class="method get">GET</span> <code>/songs</code>
+        <p>Returns a list of all songs in the collection.</p>
+        <h3>Response</h3>
+        <pre>
+[
+  {
+    "id": 1,
+    "title": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "album": "A Night at the Opera",
+    "year": 1975,
+    "genre": "Rock",
+    "duration": "5:55"
+  },
+  ...
+]</pre>
+    </div>
+    
+    <div class="endpoint">
+        <span class="method post">POST</span> <code>/songs</code>
+        <p>Adds a new song to the collection.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "title": "New Song Title",
+  "artist": "Artist Name",
+  "album": "Album Name",
+  "year": 2023,
+  "genre": "Genre",
+  "duration": "3:45"
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated song collection with the new song included, with an auto-generated ID.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method put">PUT</span> <code>/songs</code>
+        <p>Updates an existing song in the collection.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "id": 1,
+  "title": "Updated Song Title",
+  "artist": "Artist Name",
+  "album": "Album Name",
+  "year": 2023,
+  "genre": "Genre",
+  "duration": "3:45"
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated song collection.</p>
+    </div>
+
+    <div class="endpoint">
+        <span class="method delete">DELETE</span> <code>/songs</code>
+        <p>Deletes a song from the collection by ID.</p>
+        <h3>Request Body</h3>
+        <pre>
+{
+  "id": 1
+}</pre>
+        <h3>Response</h3>
+        <p>Returns the updated song collection with the specified song removed.</p>
+    </div>
+
+    <h2>Error Handling</h2>
+    <p>The API returns appropriate HTTP status codes along with error messages for various scenarios:</p>
+    <ul>
+        <li>400 Bad Request - For invalid input data</li>
+        <li>404 Not Found - When an item or resource is not found</li>
+        <li>405 Method Not Allowed - When using an unsupported HTTP method</li>
+        <li>500 Internal Server Error - For server-side errors</li>
+    </ul>
+
+    <footer style="margin-top: 50px; color: #7f8c8d; text-align: center; border-top: 1px solid #eee; padding-top: 20px;">
+        <p>Media API Documentation - Created for learning purposes</p>
+    </footer>
+</body>
+</html>
